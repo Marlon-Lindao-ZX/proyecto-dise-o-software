@@ -1,5 +1,5 @@
 # proyecto-dise-o-software
-Integrantes:
+Integrantes Grupo 2:
 
 David Mendoza
 
@@ -9,4 +9,4 @@ Kevin Cevallos
 
 Documento: 
 
-Proyecto2.docx
+ProyectoGrupo2.docx
