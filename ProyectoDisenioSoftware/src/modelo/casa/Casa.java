@@ -17,6 +17,8 @@ public class Casa {
     private String orientacion;
     private double tamTerreno;
     private int numPlantas;
+    private int numBaths;
+    private boolean esquinera;
     private double precio;
     private ArrayList<ElementoAdicional> adicionales = new ArrayList<>();
 
@@ -69,6 +71,33 @@ public class Casa {
     public void setAdicionales(ArrayList<ElementoAdicional> adicionales) {
         this.adicionales = adicionales;
     }
+
+    public int getNumPlantas() {
+        return numPlantas;
+    }
+
+    public void setNumPlantas(int numPlantas) {
+        this.numPlantas = numPlantas;
+    }
+
+    public int getNumBaths() {
+        return numBaths;
+    }
+
+    public void setNumBaths(int numBaths) {
+        this.numBaths = numBaths;
+    }
+
+    public boolean isEsquinera() {
+        return esquinera;
+    }
+
+    public void setEsquinera(boolean esquinera) {
+        this.esquinera = esquinera;
+    }
+    
+    
+    
     
     
 }

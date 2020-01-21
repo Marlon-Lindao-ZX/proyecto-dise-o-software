@@ -9,7 +9,7 @@ package modelo.casa.builder;
  *
  * @author CORE I7
  */
-public class CasaParaiso extends CasaBuilder{
+public class CasaParaisoBuilder extends CasaBuilder{
 
     @Override
     public void aplanarTerreno() {
