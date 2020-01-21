@@ -13,14 +13,10 @@ import modelo.varios.Telefono;
  *
  * @author CORE I7
  */
-public class Empleado extends Persona{
+public class Administrador extends Persona{
     
-  
-    public Empleado(DatosPersonales datos, Direccion domicilio, ArrayList<Telefono> telefonos, String email) {
+    public Administrador(DatosPersonales datos, Direccion domicilio, ArrayList<Telefono> telefonos, String email) {
         super(datos, domicilio, telefonos, email);
-        
     }
-    
-    
     
 }

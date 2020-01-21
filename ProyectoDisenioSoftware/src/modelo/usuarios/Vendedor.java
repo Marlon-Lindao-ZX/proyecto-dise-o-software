@@ -13,12 +13,20 @@ import modelo.varios.Telefono;
  *
  * @author CORE I7
  */
-public class Empleado extends Persona{
+public class Vendedor extends Persona{
     
-  
-    public Empleado(DatosPersonales datos, Direccion domicilio, ArrayList<Telefono> telefonos, String email) {
+    private ArrayList<Cliente> cliente = new ArrayList<>();
+    
+    public Vendedor(DatosPersonales datos, Direccion domicilio, ArrayList<Telefono> telefonos, String email) {
         super(datos, domicilio, telefonos, email);
-        
+    }
+
+    public ArrayList<Cliente> getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(ArrayList<Cliente> cliente) {
+        this.cliente = cliente;
     }
     
     
