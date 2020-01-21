@@ -20,8 +20,8 @@ public class Cliente extends Persona{
     private String cargo;
     private int cantHijos;
     
-    public Cliente(String nombres, String apellidos, String identificacion, Direccion domicilio, ArrayList<Telefono> telefonos, String email, String estadoCivil) {
-        super(nombres, apellidos, identificacion, domicilio, telefonos, email, estadoCivil);
+    public Cliente(DatosPersonales datos, Direccion domicilio, ArrayList<Telefono> telefonos, String email) {
+        super(datos, domicilio, telefonos, email);
     }
 
     public Empresa getEmpresa() {

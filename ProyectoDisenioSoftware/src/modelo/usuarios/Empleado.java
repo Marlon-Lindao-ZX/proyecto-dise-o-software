@@ -15,8 +15,21 @@ import modelo.varios.Telefono;
  */
 public class Empleado extends Persona{
     
-    public Empleado(String nombres, String apellidos, String identificacion, Direccion domicilio, ArrayList<Telefono> telefonos, String email, String estadoCivil) {
-        super(nombres, apellidos, identificacion, domicilio, telefonos, email, estadoCivil);
+    private String cargo;
+    
+    public Empleado(DatosPersonales datos, Direccion domicilio, ArrayList<Telefono> telefonos, String email, String cargo) {
+        super(datos, domicilio, telefonos, email);
+        this.cargo = cargo;
     }
+
+    public String getCargo() {
+        return cargo;
+    }
+
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
+    }
+    
+    
     
 }

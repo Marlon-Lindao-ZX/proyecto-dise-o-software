@@ -15,46 +15,18 @@ import modelo.varios.Telefono;
  */
 public abstract class Persona {
     
-    protected String nombres;
-    protected String apellidos;
-    protected String identificacion;
+    protected DatosPersonales datos;
     protected Direccion domicilio;
     protected ArrayList<Telefono> telefonos;
     protected String email;
-    protected String estadoCivil;
+    
 
-    public Persona(String nombres, String apellidos, String identificacion, Direccion domicilio, ArrayList<Telefono> telefonos, String email, String estadoCivil) {
-        this.nombres = nombres;
-        this.apellidos = apellidos;
-        this.identificacion = identificacion;
+    public Persona(DatosPersonales datos, Direccion domicilio, ArrayList<Telefono> telefonos, String email) {
+        this.datos = datos;
         this.domicilio = domicilio;
         this.telefonos = telefonos;
         this.email = email;
-        this.estadoCivil = estadoCivil;
-    }
-
-    public String getNombres() {
-        return nombres;
-    }
-
-    public void setNombres(String nombres) {
-        this.nombres = nombres;
-    }
-
-    public String getApellidos() {
-        return apellidos;
-    }
-
-    public void setApellidos(String apellidos) {
-        this.apellidos = apellidos;
-    }
-
-    public String getIdentificacion() {
-        return identificacion;
-    }
-
-    public void setIdentificacion(String identificacion) {
-        this.identificacion = identificacion;
+        
     }
 
     public Direccion getDomicilio() {
@@ -80,15 +52,5 @@ public abstract class Persona {
     public void setEmail(String email) {
         this.email = email;
     }
-
-    public String getEstadoCivil() {
-        return estadoCivil;
-    }
-
-    public void setEstadoCivil(String estadoCivil) {
-        this.estadoCivil = estadoCivil;
-    }
-    
-    
     
 }

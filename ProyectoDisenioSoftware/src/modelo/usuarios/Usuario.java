@@ -19,6 +19,14 @@ public class Usuario {
         this.usuario = usuario;
         this.clave = clave;
     }
+    
+    public boolean logIn(){
+        return true;
+    }
+    
+    public boolean logOut(){
+        return true;
+    }
 
     public Persona getPersona() {
         return persona;
