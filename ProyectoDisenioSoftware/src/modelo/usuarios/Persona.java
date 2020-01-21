@@ -7,6 +7,7 @@ package modelo.usuarios;
 
 import java.util.ArrayList;
 import modelo.varios.Direccion;
+import modelo.varios.Telefono;
 
 /**
  *
@@ -18,11 +19,11 @@ public abstract class Persona {
     protected String apellidos;
     protected String identificacion;
     protected Direccion domicilio;
-    protected ArrayList<String> telefonos;
+    protected ArrayList<Telefono> telefonos;
     protected String email;
     protected String estadoCivil;
 
-    public Persona(String nombres, String apellidos, String identificacion, Direccion domicilio, ArrayList<String> telefonos, String email, String estadoCivil) {
+    public Persona(String nombres, String apellidos, String identificacion, Direccion domicilio, ArrayList<Telefono> telefonos, String email, String estadoCivil) {
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.identificacion = identificacion;
@@ -64,11 +65,11 @@ public abstract class Persona {
         this.domicilio = domicilio;
     }
 
-    public ArrayList<String> getTelefonos() {
+    public ArrayList<Telefono> getTelefonos() {
         return telefonos;
     }
 
-    public void setTelefonos(ArrayList<String> telefonos) {
+    public void setTelefonos(ArrayList<Telefono> telefonos) {
         this.telefonos = telefonos;
     }
 

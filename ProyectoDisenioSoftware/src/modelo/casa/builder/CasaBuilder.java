@@ -5,10 +5,27 @@
  */
 package modelo.casa.builder;
 
+import modelo.casa.Casa;
+
 /**
  *
  * @author CORE I7
  */
-public class CasaBuilder {
+public abstract class CasaBuilder{
+    
+    protected Casa casa;
+
+
+    public abstract void aplanarTerreno();
+    public abstract void construirPlantas();
+    public abstract void construirHabitaciones();
+    public abstract void construirPatio();
+    public abstract void definirSentido(); 
+    public abstract void agregarElementos(); 
+
+    public Casa getCasa() {
+        return casa;
+    }
+    
     
 }

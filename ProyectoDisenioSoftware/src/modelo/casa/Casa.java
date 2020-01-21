@@ -16,18 +16,11 @@ public class Casa {
     private double tamPatio;
     private String orientacion;
     private double tamTerreno;
+    private int numPlantas;
     private double precio;
     private ArrayList<ElementoAdicional> adicionales = new ArrayList<>();
 
     public Casa() {}
-
-    public Casa(int numHabitaciones, double tamPatio, String orientacion, double tamTerreno, double precio) {
-        this.numHabitaciones = numHabitaciones;
-        this.tamPatio = tamPatio;
-        this.orientacion = orientacion;
-        this.tamTerreno = tamTerreno;
-        this.precio = precio;
-    }
 
     public int getNumHabitaciones() {
         return numHabitaciones;
