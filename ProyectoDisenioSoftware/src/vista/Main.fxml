@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<AnchorPane id="AnchorPane" prefHeight="200" prefWidth="320" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.MainController">
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="351.0" prefWidth="478.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.60" fx:controller="controlador.MainController">
     <children>
-        <Button layoutX="126" layoutY="60" text="Click Me!" onAction="#handleButtonAction" fx:id="button" />
-        <Button layoutX="126" layoutY="90" text="Crear!" onAction="#handleButton2Action" fx:id="button2" />
-        <Button layoutX="126" layoutY="120" text="Crear!" onAction="#handleButton3Action" fx:id="button3" />
-        <Button layoutX="210" layoutY="10" text="Iniciar Sesión!" onAction="#handleButton4Action" fx:id="button4" />
-        <Label layoutX="126" layoutY="120" minHeight="16" minWidth="69" fx:id="label" />
+        <Button fx:id="button" layoutX="169.0" layoutY="86.0" onAction="#handleButtonAction" text="Seleccionar Casa Básica" />
+        <Button fx:id="button2" layoutX="190.0" layoutY="130.0" onAction="#handleButton2Action" text="Agregar Detalle" />
+        <Button fx:id="button3" layoutX="179.0" layoutY="173.0" onAction="#handleButton3Action" text="Ver Costo Adicional" />
+        <Button fx:id="button4" layoutX="368.0" layoutY="20.0" onAction="#handleButton4Action" text="Iniciar Sesión" />
+        <Label fx:id="label" layoutX="116.0" layoutY="137.0" minHeight="16" minWidth="69" />
+      <Button layoutX="162.0" layoutY="215.0" mnemonicParsing="false" text="Enviar mensaje Por Correo" />
+      <Button layoutX="189.0" layoutY="256.0" mnemonicParsing="false" text="Registrar Diseño" />
     </children>
 </AnchorPane>
