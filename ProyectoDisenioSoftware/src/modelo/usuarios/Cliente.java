@@ -5,8 +5,9 @@
  */
 package modelo.usuarios;
 
+import modelo.varios.DatosPersonales;
 import java.util.ArrayList;
-import modelo.casa.Casa;
+import modelo.casa.decorator.Casa;
 import modelo.varios.Direccion;
 import modelo.varios.Empresa;
 import modelo.varios.Telefono;

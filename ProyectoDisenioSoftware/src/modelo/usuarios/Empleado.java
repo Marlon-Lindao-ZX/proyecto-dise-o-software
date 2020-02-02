@@ -5,6 +5,7 @@
  */
 package modelo.usuarios;
 
+import modelo.varios.DatosPersonales;
 import java.util.ArrayList;
 import modelo.varios.Direccion;
 import modelo.varios.Telefono;
@@ -15,12 +16,20 @@ import modelo.varios.Telefono;
  */
 public class Empleado extends Persona{
     
+    protected boolean isActive;
   
     public Empleado(DatosPersonales datos, Direccion domicilio, ArrayList<Telefono> telefonos, String email) {
         super(datos, domicilio, telefonos, email);
+        isActive = true;
         
     }
-    
-    
-    
+
+    public boolean isIsActive() {
+        return isActive;
+    }
+
+    public void setIsActive(boolean isActive) {
+        this.isActive = isActive;
+    }
+     
 }

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package modelo.casa;
+package modelo.casa.decorator;
 
 import java.util.ArrayList;
 
@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author CORE I7
  */
-public class Casa {
+public class Casa implements CasaDisenio {
     private int numHabitaciones;
     private double tamPatio;
     private String orientacion;
@@ -20,7 +20,6 @@ public class Casa {
     private int numBaths;
     private boolean esquinera;
     private double precio;
-    private ArrayList<ElementoAdicional> adicionales = new ArrayList<>();
 
     public Casa() {}
 
@@ -64,14 +63,6 @@ public class Casa {
         this.precio = precio;
     }
 
-    public ArrayList<ElementoAdicional> getAdicionales() {
-        return adicionales;
-    }
-
-    public void setAdicionales(ArrayList<ElementoAdicional> adicionales) {
-        this.adicionales = adicionales;
-    }
-
     public int getNumPlantas() {
         return numPlantas;
     }
@@ -94,6 +85,11 @@ public class Casa {
 
     public void setEsquinera(boolean esquinera) {
         this.esquinera = esquinera;
+    }
+
+    @Override
+    public double calculatePrice() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     

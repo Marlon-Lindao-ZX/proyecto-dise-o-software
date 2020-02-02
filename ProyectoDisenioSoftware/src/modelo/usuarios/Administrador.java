@@ -5,6 +5,7 @@
  */
 package modelo.usuarios;
 
+import modelo.varios.DatosPersonales;
 import java.util.ArrayList;
 import modelo.varios.Direccion;
 import modelo.varios.Telefono;
@@ -13,7 +14,7 @@ import modelo.varios.Telefono;
  *
  * @author CORE I7
  */
-public class Administrador extends Persona{
+public class Administrador extends Empleado{
     
     public Administrador(DatosPersonales datos, Direccion domicilio, ArrayList<Telefono> telefonos, String email) {
         super(datos, domicilio, telefonos, email);

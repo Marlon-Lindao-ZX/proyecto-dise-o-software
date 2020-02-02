@@ -3,16 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package modelo.casa;
+package modelo.casa.decorator;
 
 /**
  *
  * @author CORE I7
  */
-public class Griferia extends ElementoAdicional{
-    
-    public Griferia(String name, double precio) {
-        super(name, precio);
-    }
-    
+public interface CasaDisenio {
+    double calculatePrice();
 }
