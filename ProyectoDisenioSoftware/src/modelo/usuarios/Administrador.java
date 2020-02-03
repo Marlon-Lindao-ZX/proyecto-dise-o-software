@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import modelo.datos.singleton.Conexion;
+import modelo.varios.DatosPersonales;
 import modelo.varios.Direccion;
 import modelo.varios.Telefono;
 
@@ -17,28 +18,24 @@ import modelo.varios.Telefono;
  *
  * @author CORE I7
  */
-public class Administrador extends Persona implements BaseDeDatos{
+public class Administrador extends Empleado{
     
     public Administrador(DatosPersonales datos, Direccion domicilio, ArrayList<Telefono> telefonos, String email) {
         super(datos, domicilio, telefonos, email);
     }
 
     @Override
-    public void insertEnBase(String usuario, String contrasena, String quiosco) throws SQLException {
+    public int insertEnBase(String usuario, String contrasena, String quiosco) throws SQLException {
         Statement stm=Conexion.getConexion().getConnection().createStatement();
-         String celular = null;
-         String telefono=null;
-         for(Telefono t:this.getTelefonos()){
-             if(t.getTipo().equals("celular")) celular=t.getNumero();
-             if(t.getTipo().equals("telefono")) telefono=t.getNumero();
-         }
-         ResultSet rs =stm.executeQuery("select id_user from user order by id_user desc limit 1");
+         Usuario user=new Usuario(this, usuario, contrasena);
+         Integer idUser=user.insertEnBase(usuario, contrasena, quiosco);
+         ResultSet rs =stm.executeQuery("select empleado_id from empleado order by empleado_id desc limit 1");
          rs.next();
-         Integer id=rs.getInt("id_user");
+         Integer id=rs.getInt("empleado_id");
          id++;
          String id_string=id.toString();
-         stm.executeUpdate("Insert into user(id_user,nombre,apellido,celular,cedula,pasaporte,email,domicilio,telefono,estadoCivil,cargo,usuario,contrasena) values("+id_string+",'"+this.datos.getNombres()+"','"+this.datos.getApellidos()+"','"+celular+"','"+this.datos.getIdentificacion()+"','"+this.datos.getIdentificacion()+"','"+this.email+"','"+this.domicilio.getDireccion()+"','"+telefono+"','"+this.datos.getEstadoCivil()+"','Administador','"+usuario+"','"+contrasena+"')");
-     
+         stm.executeUpdate("Insert into empleado(empleado_id,user_id,quiosco_id,rol) values("+id_string+",'"+idUser+"',1,'Vendedor')");
+         return id;
     }
     
     

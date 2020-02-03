@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import modelo.usuarios.Cliente;
-import modelo.usuarios.DatosPersonales;
+import modelo.varios.DatosPersonales;
 import modelo.usuarios.Empleado;
 import modelo.usuarios.Persona;
 import modelo.usuarios.Usuario;

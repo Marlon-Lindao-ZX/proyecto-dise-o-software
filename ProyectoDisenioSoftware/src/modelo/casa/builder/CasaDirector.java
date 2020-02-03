@@ -5,7 +5,7 @@
  */
 package modelo.casa.builder;
 
-import modelo.casa.Casa;
+import modelo.casa.decorator.Casa;
 
 /**
  *

@@ -12,6 +12,6 @@ import java.sql.SQLException;
  * @author davidmendozaloor
  */
 public interface BaseDeDatos {
-    public void insertEnBase(String usuario, String contrasena,String quiosco) throws SQLException;
+    public int insertEnBase(String usuario, String contrasena,String quiosco) throws SQLException;
     
 }

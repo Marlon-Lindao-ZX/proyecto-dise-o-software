@@ -3,16 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package modelo.casa;
+package modelo.singleton;
 
 /**
  *
  * @author CORE I7
  */
-public class Piso extends ElementoAdicional{
-    
-    public Piso(String name, double precio) {
-        super(name, precio);
-    }
+public class RecursosGlobales {
     
 }

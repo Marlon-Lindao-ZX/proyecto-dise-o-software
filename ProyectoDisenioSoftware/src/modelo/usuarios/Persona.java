@@ -5,6 +5,7 @@
  */
 package modelo.usuarios;
 
+import modelo.varios.DatosPersonales;
 import java.util.ArrayList;
 import modelo.varios.Direccion;
 import modelo.varios.Telefono;

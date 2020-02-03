@@ -3,24 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package modelo.casa;
+package modelo.casa.decorator;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 import modelo.datos.singleton.Conexion;
-import modelo.usuarios.BaseDeDatos;
 import modelo.usuarios.Usuario;
-import modelo.varios.Telefono;
 
 /**
  *
  * @author CORE I7
  */
-public class Casa {
+public class Casa implements CasaDisenio {
     private int numHabitaciones;
     private String nombre;
     private double tamPatio;
@@ -30,13 +27,8 @@ public class Casa {
     private int numBaths;
     private boolean esquinera;
     private double precio;
-    private ArrayList<ElementoAdicional> adicionales = new ArrayList<>();
 
     public Casa() {}
-
-    public int getNumHabitaciones() {
-        return numHabitaciones;
-    }
 
     public String getNombre() {
         return nombre;
@@ -47,6 +39,10 @@ public class Casa {
     }
     
     
+
+    public int getNumHabitaciones() {
+        return numHabitaciones;
+    }
 
     public void setNumHabitaciones(int numHabitaciones) {
         this.numHabitaciones = numHabitaciones;
@@ -84,14 +80,6 @@ public class Casa {
         this.precio = precio;
     }
 
-    public ArrayList<ElementoAdicional> getAdicionales() {
-        return adicionales;
-    }
-
-    public void setAdicionales(ArrayList<ElementoAdicional> adicionales) {
-        this.adicionales = adicionales;
-    }
-
     public int getNumPlantas() {
         return numPlantas;
     }
@@ -115,37 +103,23 @@ public class Casa {
     public void setEsquinera(boolean esquinera) {
         this.esquinera = esquinera;
     }
-
-    public void insertEnBase() throws SQLException {
+    
+      public void insertEnBase() throws SQLException {
         Statement stm=Conexion.getConexion().getConnection().createStatement();
-         List<String> adicionalesList=getAdicionalesString();
-         String precioFinal=adicionalesList.get(0);
-         String adiString=adicionalesList.get(1);
-         ResultSet rs =stm.executeQuery("select casa_basica_id from casaBasica where nombre='"+nombre+"'");
+         ResultSet rs =stm.executeQuery("select casa_basica_id from casaBasica order by casa_basica_id desc limit 1");
          rs.next();
          Integer id=rs.getInt("casa_basica_id");
          id++;
          String id_casaBasica=id.toString();
-         String usuarioRegistrado=Usuario.usuarioRegistrado.getUsuario();
-         ResultSet rs2=stm.executeQuery("select id_user from user where usuario='"+usuarioRegistrado+"'");
-         rs2.next();
-         Integer id_usuario=rs2.getInt("id_user");
-         stm.executeUpdate("insert into diseno(casa_basica_id,acabados,cliente_id,quiosco_id,precio) values ("+id_casaBasica+",'"+id_usuario+"','"+adiString+"',1,'"+precioFinal+"'");
+         stm.executeUpdate("insert into casaBasica(casa_basica_id,nombre,numHabitaciones,tamTerreno,numeroPlanta,esEsquinera,orientacion,tamPatio,numBanos) values ("+id_casaBasica+",'"+nombre+"','"+numHabitaciones+",'"+tamTerreno+",'"+numPlantas+",'"+esquinera+",'"+orientacion+",'"+tamPatio+",'"+numBaths+"')");
      
     }
-    
-    public List<String> getAdicionalesString(){
-        LinkedList<String> adicionalesPrecio=new LinkedList<>();
-        Double precioFinal=precio;
-        StringBuilder sb=new StringBuilder();
-        for(ElementoAdicional ele: adicionales){
-            precioFinal+=ele.getPrecio();
-            sb.append(ele.getName()).append(" ");
-        }
-        adicionalesPrecio.add(precioFinal.toString());
-        adicionalesPrecio.add(sb.toString());
-        return adicionalesPrecio;
+
+    @Override
+    public double calculatePrice() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
     
     
     
