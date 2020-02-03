@@ -17,7 +17,7 @@ public abstract class CasaDecorator implements CasaDisenio{
     }
     
     public double calculatePrecio(){
-        return wrapee.calculatePrice() + getOwnPrice();
+        return wrapee.calculatePrice();
     }
     
     public abstract double getOwnPrice();
