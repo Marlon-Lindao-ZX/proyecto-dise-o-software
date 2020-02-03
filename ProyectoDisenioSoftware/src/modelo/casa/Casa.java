@@ -5,7 +5,16 @@
  */
 package modelo.casa;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import modelo.datos.singleton.Conexion;
+import modelo.usuarios.BaseDeDatos;
+import modelo.usuarios.Usuario;
+import modelo.varios.Telefono;
 
 /**
  *
@@ -13,6 +22,7 @@ import java.util.ArrayList;
  */
 public class Casa {
     private int numHabitaciones;
+    private String nombre;
     private double tamPatio;
     private String orientacion;
     private double tamTerreno;
@@ -27,6 +37,16 @@ public class Casa {
     public int getNumHabitaciones() {
         return numHabitaciones;
     }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    
+    
 
     public void setNumHabitaciones(int numHabitaciones) {
         this.numHabitaciones = numHabitaciones;
@@ -95,7 +115,37 @@ public class Casa {
     public void setEsquinera(boolean esquinera) {
         this.esquinera = esquinera;
     }
+
+    public void insertEnBase() throws SQLException {
+        Statement stm=Conexion.getConexion().getConnection().createStatement();
+         List<String> adicionalesList=getAdicionalesString();
+         String precioFinal=adicionalesList.get(0);
+         String adiString=adicionalesList.get(1);
+         ResultSet rs =stm.executeQuery("select casa_basica_id from casaBasica where nombre='"+nombre+"'");
+         rs.next();
+         Integer id=rs.getInt("casa_basica_id");
+         id++;
+         String id_casaBasica=id.toString();
+         String usuarioRegistrado=Usuario.usuarioRegistrado.getUsuario();
+         ResultSet rs2=stm.executeQuery("select id_user from user where usuario='"+usuarioRegistrado+"'");
+         rs2.next();
+         Integer id_usuario=rs2.getInt("id_user");
+         stm.executeUpdate("insert into diseno(casa_basica_id,acabados,cliente_id,quiosco_id,precio) values ("+id_casaBasica+",'"+id_usuario+"','"+adiString+"',1,'"+precioFinal+"'");
+     
+    }
     
+    public List<String> getAdicionalesString(){
+        LinkedList<String> adicionalesPrecio=new LinkedList<>();
+        Double precioFinal=precio;
+        StringBuilder sb=new StringBuilder();
+        for(ElementoAdicional ele: adicionales){
+            precioFinal+=ele.getPrecio();
+            sb.append(ele.getName()).append(" ");
+        }
+        adicionalesPrecio.add(precioFinal.toString());
+        adicionalesPrecio.add(sb.toString());
+        return adicionalesPrecio;
+    }
     
     
     

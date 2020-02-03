@@ -10,10 +10,14 @@ package modelo.usuarios;
  * @author CORE I7
  */
 public class Usuario {
+    public static Usuario usuarioRegistrado=new Usuario();
     private Persona persona;
     private String usuario;
     private String clave;
 
+    public Usuario(){
+        
+    }
     public Usuario(Persona persona, String usuario, String clave) {
         this.persona = persona;
         this.usuario = usuario;
@@ -50,6 +54,11 @@ public class Usuario {
 
     public void setClave(String clave) {
         this.clave = clave;
+    }
+
+    @Override
+    public String toString() {
+        return "Usuario{" + "usuario=" + usuario + ", clave=" + clave + '}';
     }
     
     
