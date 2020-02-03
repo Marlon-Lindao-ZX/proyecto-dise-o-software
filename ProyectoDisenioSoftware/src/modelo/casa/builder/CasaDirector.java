@@ -20,7 +20,7 @@ public class CasaDirector {
         builder.construirHabitaciones();
         builder. construirPatio();
         builder.definirSentido(); 
-        builder. agregarElementos();
+        
     }
     
     public Casa getCasa(){

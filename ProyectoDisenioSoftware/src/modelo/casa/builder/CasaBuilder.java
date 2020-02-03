@@ -21,7 +21,6 @@ public abstract class CasaBuilder{
     public abstract void construirHabitaciones();
     public abstract void construirPatio();
     public abstract void definirSentido(); 
-    public abstract void agregarElementos(); 
 
     public Casa getCasa() {
         return casa;

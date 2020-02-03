@@ -35,11 +35,6 @@ public class CasaParaisoBuilder extends CasaBuilder{
     public void definirSentido() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-    @Override
-    public void agregarElementos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     
     
 }

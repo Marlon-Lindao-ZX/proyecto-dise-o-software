@@ -5,6 +5,9 @@
  */
 package modelo.casa.decorator;
 
+import java.sql.SQLException;
+import modelo.datos.singleton.Conexion;
+
 /**
  *
  * @author CORE I7
@@ -17,7 +20,8 @@ public class AcabadoDecorator extends CasaDecorator{
 
     @Override
     public double getOwnPrice() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Conexion conexion = Conexion.getConexion();
+        return Double.parseDouble(conexion.getQueryResult("select  from "));
     }
 
     @Override

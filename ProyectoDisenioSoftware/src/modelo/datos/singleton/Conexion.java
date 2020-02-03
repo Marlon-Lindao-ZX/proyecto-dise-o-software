@@ -39,11 +39,15 @@ public class Conexion {
     
     
     
-    public static  Conexion getConexion() throws SQLException{
+    public static  Conexion getConexion(){
         if (conexion==null){
+            try{
             conexion=new Conexion();
             conexion.setConnection(DriverManager.getConnection("jdbc:mysql://127.0.0.1:3308/my_home", "root", "password"));
             return conexion;
+            } catch(SQLException sql){
+                return null;
+            }
         }
         else{
             return conexion;
@@ -100,7 +104,18 @@ public class Conexion {
             empleados.add(empleado);
         }
         return empleados;
-    } 
+    }
+     
+     public String getQueryResult(String query){
+         
+         try{
+         Statement stm=connection.createStatement();
+         ResultSet rs=stm.executeQuery(query);
+         return rs.getString(0);
+         }catch(SQLException sql){
+             return "";
+         }
+     }
     
     
     

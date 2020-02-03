@@ -5,6 +5,8 @@
  */
 package modelo.casa.decorator;
 
+import modelo.datos.singleton.Conexion;
+
 /**
  *
  * @author CORE I7
@@ -17,7 +19,8 @@ public class AislanteTermicoDecorator extends CasaDecorator{
 
     @Override
     public double getOwnPrice() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Conexion conexion = Conexion.getConexion();
+        return Double.parseDouble(conexion.getQueryResult("select  from "));
     }
 
     @Override
