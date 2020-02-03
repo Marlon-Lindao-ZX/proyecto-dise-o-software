@@ -4,5 +4,6 @@ Requerimientos
 
 Pasos
 	1.Desde la terminal ir a la carpeta dentro del proyecto llamada dockerFiles mediante el comando cd
-	2. Ejecutar el comando docker-compose up con el cual se instala la imagen de mysql en caso de no tenerla instalada y una vez instalada se crea el contenedor y empieza a ejecutarse.\
-	3. Conectarse a la base de datos con el usuario root y contraseña password. La direccion y puerto de enlace es localhost:3308
+	2. Si se realiza desde MacOs ignorar este paso, en caso de utilizar Windows hacer click derecho en icono de Docker en 		la barra de tareas en el escritorio y hacer click en la opcion Switch to Windows Containers.
+	3. Ejecutar el comando docker-compose up con el cual se instala la imagen de mysql en caso de no tenerla instalada y 		una vez instalada se crea el contenedor y empieza a ejecutarse.
+	4. Conectarse a la base de datos con el usuario root y contraseña password. La direccion y puerto de enlace es 		localhost:3308

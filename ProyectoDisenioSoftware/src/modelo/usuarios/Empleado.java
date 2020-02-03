@@ -5,8 +5,12 @@
  */
 package modelo.usuarios;
 
-import modelo.varios.DatosPersonales;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
+import modelo.datos.singleton.Conexion;
+import modelo.varios.DatosPersonales;
 import modelo.varios.Direccion;
 import modelo.varios.Telefono;
 
@@ -14,7 +18,7 @@ import modelo.varios.Telefono;
  *
  * @author CORE I7
  */
-public class Empleado extends Persona{
+public class Empleado extends Persona implements BaseDeDatos{
     
     protected boolean isActive;
   
@@ -30,6 +34,11 @@ public class Empleado extends Persona{
 
     public void setIsActive(boolean isActive) {
         this.isActive = isActive;
+    }
+
+    @Override
+    public int insertEnBase(String usuario, String contrasena, String quiosco) throws SQLException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
      
 }

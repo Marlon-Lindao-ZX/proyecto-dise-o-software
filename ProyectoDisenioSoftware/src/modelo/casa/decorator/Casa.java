@@ -5,7 +5,13 @@
  */
 package modelo.casa.decorator;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
+import modelo.datos.singleton.Conexion;
+import modelo.usuarios.Usuario;
 
 /**
  *
@@ -13,6 +19,7 @@ import java.util.ArrayList;
  */
 public class Casa implements CasaDisenio {
     private int numHabitaciones;
+    private String nombre;
     private double tamPatio;
     private String orientacion;
     private double tamTerreno;
@@ -22,6 +29,16 @@ public class Casa implements CasaDisenio {
     private double precio;
 
     public Casa() {}
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    
+    
 
     public int getNumHabitaciones() {
         return numHabitaciones;
@@ -85,6 +102,17 @@ public class Casa implements CasaDisenio {
 
     public void setEsquinera(boolean esquinera) {
         this.esquinera = esquinera;
+    }
+    
+      public void insertEnBase() throws SQLException {
+        Statement stm=Conexion.getConexion().getConnection().createStatement();
+         ResultSet rs =stm.executeQuery("select casa_basica_id from casaBasica order by casa_basica_id desc limit 1");
+         rs.next();
+         Integer id=rs.getInt("casa_basica_id");
+         id++;
+         String id_casaBasica=id.toString();
+         stm.executeUpdate("insert into casaBasica(casa_basica_id,nombre,numHabitaciones,tamTerreno,numeroPlanta,esEsquinera,orientacion,tamPatio,numBanos) values ("+id_casaBasica+",'"+nombre+"','"+numHabitaciones+",'"+tamTerreno+",'"+numPlantas+",'"+esquinera+",'"+orientacion+",'"+tamPatio+",'"+numBaths+"')");
+     
     }
 
     @Override

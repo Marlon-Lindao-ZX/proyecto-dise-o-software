@@ -14,11 +14,11 @@ import modelo.varios.Telefono;
  *
  * @author CORE I7
  */
-public abstract class Persona {
+public class Persona {
     
     protected DatosPersonales datos;
     protected Direccion domicilio;
-    protected ArrayList<Telefono> telefonos;
+    protected ArrayList<Telefono> telefonos=new ArrayList<>();
     protected String email;
     
 
@@ -29,6 +29,16 @@ public abstract class Persona {
         this.email = email;
         
     }
+
+    public DatosPersonales getDatos() {
+        return datos;
+    }
+
+    public void setDatos(DatosPersonales datos) {
+        this.datos = datos;
+    }
+    
+    
 
     public Direccion getDomicilio() {
         return domicilio;
@@ -52,6 +62,11 @@ public abstract class Persona {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    @Override
+    public String toString() {
+        return "Persona{" + "datos=" + datos.getNombres() + ", domicilio=" + domicilio.getDireccion() + ", email=" + email + '}';
     }
     
 }
