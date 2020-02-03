@@ -89,7 +89,7 @@ public class Casa implements CasaDisenio {
 
     @Override
     public double calculatePrice() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return precio;
     }
     
     
